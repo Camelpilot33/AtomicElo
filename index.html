@@ -1,0 +1,33 @@
+<a href="https://docs.google.com/spreadsheets/d/1Tef5jsHHTfCwS8vHO2NLirPo-BYG8vHdZJeNXxxokz4/copy">Graph Data</a><br><br>
+<script>
+function run() {
+  let names = document.getElementById('names').value.split(',').map(e => new RegExp(e))
+  let data = document.getElementById('input').value
+    .split('\n\n').map(e => f(e, names))
+	let output=`<table cellspaceing=0><tr>${data.map(e=>`<td>${e.join("</td><td>")}</td>`).join("</tr><tr>")}</tr></table>`
+  document.getElementById("output").innerHTML =output
+}
+
+function f(str, names) {
+  a = str.split('\n')
+  date = NaN
+  elo = NaN
+  for (let i in a) {
+    date = /(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d+ \d+:\d+ [AP]M/g.test(a[i]) ? a[i]/* .split(' ').slice(0, 2).join(' ') */ : date
+    for (let name of names) {
+      elo = name.test(a[i]) ? Number(a[Number(i) + 1].slice(0, -1).slice(1, 10)) : elo
+    }
+  }
+  return [date, elo]
+}</script>
+<style>
+td {border: 3px solid black}
+</style>
+<textarea id="input" type="text" cols=26 rows=10 placeholder="Paste the text here"></textarea><br>
+<input id="names" type="text" value="username1,username2">
+<button onclick="run()">Run</button><br>
+<p id="output">
+	output
+</p>
+&#8592;drag cursor here to avoid bugs when pasting<br>
+Note: if you have a bunch of NaN's at the end, check that your name wasn't changed!
