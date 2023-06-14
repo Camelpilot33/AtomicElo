@@ -1,33 +1,47 @@
-<a href="https://docs.google.com/spreadsheets/d/1Tef5jsHHTfCwS8vHO2NLirPo-BYG8vHdZJeNXxxokz4/copy">Graph Data</a><br><br>
-<script>
-function run() {
-  let names = document.getElementById('names').value.split(',').map(e => new RegExp(e))
-  let data = document.getElementById('input').value
-    .split('\n\n').map(e => f(e, names))
-	let output=`<table cellspaceing=0><tr>${data.map(e=>`<td>${e.join("</td><td>")}</td>`).join("</tr><tr>")}</tr></table>`
-  document.getElementById("output").innerHTML =output
-}
+<!DOCTYPE html>
+<html lang="en">
 
-function f(str, names) {
-  a = str.split('\n')
-  date = NaN
-  elo = NaN
-  for (let i in a) {
-    date = /(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d+ \d+:\d+ [AP]M/g.test(a[i]) ? a[i]/* .split(' ').slice(0, 2).join(' ') */ : date
-    for (let name of names) {
-      elo = name.test(a[i]) ? Number(a[Number(i) + 1].slice(0, -1).slice(1, 10)) : elo
-    }
-  }
-  return [date, elo]
-}</script>
-<style>
-td {border: 3px solid black}
-</style>
-<textarea id="input" type="text" cols=26 rows=10 placeholder="Paste the text here"></textarea><br>
-<input id="names" type="text" value="username1,username2">
-<button onclick="run()">Run</button><br>
-<p id="output">
-	output
-</p>
-&#8592;drag cursor here to avoid bugs when pasting<br>
-Note: if you have a bunch of NaN's at the end, check that your name wasn't changed!
+<head>
+  <link rel="icon" href="camulFavicon.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="author" content="Samuel Sastry">
+  <title>AtomicElo</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="main.js"></script>
+</head>
+
+<body>
+  <h1>AtomicElo</h1>
+
+  <h3>Input:</h3>
+  <div id="config">
+    <textarea id="input" type="text" cols=26 rows=10 placeholder="Paste data here"></textarea><br>
+    
+    <div class="sel">
+      <label for="names">Usernames:</label>
+      <input name="names" id="names" type="text" placeholder="Comma,Seperated,Names"><br>
+    </div>
+
+    <div class="sel">
+      <label for="year">Year:</label>
+      <input name="year" id="year" type="text" placeholder="" value="2023"><br>
+    </div><br>
+
+    <button onclick="run()" title="Generate the points & copy to your clipboard">Run</button>
+    <button onclick="window.open(`https:/\/docs.google.com/spreadsheets/d/1mvYTrzaOC6fLA4-BQ-NvXqSRTc1qCcMCUJyv-7-O6_4/edit?usp=sharing`,'_blank')" rel="noopener noreferrer" title="Open up an example google sheet to graph the data">Graph Data</a>
+  </div>
+
+  <h3>Output:</h3>
+  <p id="output">
+    
+  </p><br>
+  <p>
+    &#8592;drag cursor here to avoid bugs when pasting<br>
+    Notes: <br>
+    Check that all the names are there, case sensitive<br>
+    Pressing Run copies the output to your clipboard now
+  </p>
+</body>
+
+</html>
