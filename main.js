@@ -25,7 +25,7 @@ function run() {
         .split('\n\n').map(e => f(e, names)).filter(e=>!e.includes(NaN))
     let output = `<table cellspaceing=0><tr>${data.map(e => `<td>${e.join("</td><td>")}</td>`).join("</tr><tr>")}</tr></table>`
     document.getElementById("output").innerHTML = output
-    navigator.clipboard.writeText(data);
+    navigator.clipboard.writeText(data.map(e=>e.join('\t')).join('\n'));
 }
 
 function f(str, names) {
