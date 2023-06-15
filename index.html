@@ -8,16 +8,17 @@
   <meta name="author" content="Samuel Sastry">
   <title>AtomicElo</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
-  <script src="main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/main.js"></script>
 </head>
 
 <body>
   <h1>AtomicElo</h1>
 
-  <h3>Input:</h3>
+  <h3>Input</h3>
   <div id="config">
     <textarea id="input" type="text" cols=26 rows=10 placeholder="Paste data here"></textarea><br>
-    
+
     <div class="sel">
       <label for="names">Usernames:</label>
       <input name="names" id="names" type="text" placeholder="Comma,Seperated,Names"><br>
@@ -25,23 +26,33 @@
 
     <div class="sel">
       <label for="year">Year:</label>
-      <input name="year" id="year" type="text" placeholder="" value="2023"><br>
+      <input name="year" id="year" type="text" placeholder="1984" value="2023"><br>
     </div><br>
 
     <button onclick="run()" title="Generate the points & copy to your clipboard">Run</button>
-    <button onclick="window.open(`https:/\/docs.google.com/spreadsheets/d/1mvYTrzaOC6fLA4-BQ-NvXqSRTc1qCcMCUJyv-7-O6_4/copy`,'_blank')" rel="noopener noreferrer" title="Open up an example google sheet to graph the data">Graph Data</a>
+    <button
+      onclick="window.open(`https:/\/docs.google.com/spreadsheets/d/1mvYTrzaOC6fLA4-BQ-NvXqSRTc1qCcMCUJyv-7-O6_4/copy`,'_blank')"
+      rel="noopener noreferrer" title="Open up an example google sheet to graph the data">Graph Data</button>
+    <button onclick="test();run()">Run Test Data</button>
   </div>
 
-  <h3>Output:</h3>
-  <p id="output">
-    
-  </p><br>
-  <p>
-    &#8592;drag cursor here to avoid bugs when pasting<br>
-    Notes: <br>
-    Check that all the names are there, case sensitive<br>
-    Pressing Run copies the output to your clipboard now
-  </p>
+  <h3>Output</h3>
+  <div class="container">
+    <button type="button" class="collapsible">
+      <center>Points</center>
+    </button>
+    <div id="output" class="content"></div>
+  </div>
+  <br><br>
+  <script src="js/collapsible.js"></script>
+  <canvas id="graph"></canvas>
+  <h3>Notes</h3>
+  <ul>
+    <li>Check that all of your previous names are in the name section</li>
+    <li>Make sure that your names are capitalized correctly</li>
+    <li>Pressing Run copies the output to your clipboard</li>
+  </ul>
+
 </body>
 
 </html>
