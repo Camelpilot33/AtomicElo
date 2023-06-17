@@ -3,7 +3,7 @@
 
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 var g = { destroy: e => e };
-function graph(dat,name) {
+function graph(dat, name) {
     g.destroy()
     const ctx = document.getElementById('graph');
     g = new Chart(ctx, {
@@ -11,7 +11,7 @@ function graph(dat,name) {
         data: {
             datasets: [{
                 label: name,
-                data: dat.map(e => new Object({ x: convDate(e[0]), y: e[1] })).sort(function(a, b) { return a.x - b.x;}),
+                data: dat.map(e => new Object({ x: convDate(e[0]), y: e[1] })).sort(function (a, b) { return a.x - b.x; }),
                 backgroundColor: 'rgb(255, 99, 132)'
             }]
         },
@@ -50,28 +50,28 @@ function graph(dat,name) {
     });
 }
 function convDate(a) {
-    a=a.split(' ')
-    a[1]=String(months.indexOf(a[1])+1).padStart(2,'0')
-    a=`${a[0]}-${a[1]}-${a[2].padStart(2,'0')}T${String((Number(a[3].split(':')[0])+(a[4]=="PM"?12:0))%24).padStart(2,'0')}:${String(a[3].split(':')[1]).padStart(2,'0')}:00Z`
-    return ((new Date(a).getTime())/31536000000)+1970
+    a = a.split(' ')
+    a[1] = String(months.indexOf(a[1]) + 1).padStart(2, '0')
+    a = `${a[0]}-${a[1]}-${a[2].padStart(2, '0')}T${String((Number(a[3].split(':')[0]) + (a[4] == "PM" ? 12 : 0)) % 24).padStart(2, '0')}:${String(a[3].split(':')[1]).padStart(2, '0')}:00Z`
+    return ((new Date(a).getTime()) / 31536000000) + 1970
 }
 
 function run() {
     let names = document.getElementById('names').value.split(',')
-    let player=names[0]
-    names=names.map(e => new RegExp(e))
+    let player = names[0]
+    names = names.map(e => new RegExp(e))
     let data = document.getElementById('input').value
         .split('\n\n').map(e => f(e, names)).filter(e => !e.includes(NaN))
-    let wl=[0,0]
-    for (i=1;i<data.length;i++) {
-        wl[(Number(data[i]>data[i-1]))]++
-        if (data[i]==data[i-1]) wl[1]--
+    let wl = [0, 0]
+    for (i = 1; i < data.length; i++) {
+        wl[(Number(data[i] > data[i - 1]))]++
+        if (data[i] == data[i - 1]) wl[1]--
     }
-    document.getElementById('wl').innerHTML=`Win/Total = ${wl[0]}/${wl[1]+wl[0]} = ${(wl[0]/(wl[1]+wl[0])).toFixed(3)*100}%`
+    document.getElementById('wl').innerHTML = `Win/Total = ${wl[0]}/${wl[1] + wl[0]} = ${(wl[0] / (wl[1] + wl[0])).toFixed(3) * 100}%`
     let output = `<table CELLSPACING=0><tr>${data.map(e => `<td>${e[0]}</td><td>${e[1]}</td>`).join("</tr><tr>")}</tr></table>`
     document.getElementById("output").innerHTML = output
     navigator.clipboard.writeText(data.map(e => e.join('\t')).join('\n'));
-    graph(data,player)//[[0, 1], [1.5, 10], [2, 5]])
+    graph(data, player)//[[0, 1], [1.5, 10], [2, 5]])
 }
 
 function f(str, names) {
@@ -88,8 +88,8 @@ function f(str, names) {
 }
 
 function test() {
-    document.getElementById("input").value = 
-`
+    document.getElementById("input").value =
+        `
 3 | 2
 Atomic
 Feb 19 7:07 AM
