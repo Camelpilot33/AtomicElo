@@ -11,7 +11,7 @@ table, td {
 }
 
 canvas {
-    outline: 2px solid black
+    outline: 2px solid black;
 }
 .container {
     width: 200px;
@@ -32,7 +32,6 @@ canvas {
 .collapsible:hover {
     background-color: #ddd;
 }
-
 .content {
     padding: 0px 0px;
     display: none;

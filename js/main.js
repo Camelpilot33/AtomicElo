@@ -27,6 +27,8 @@ function graph(dat,name) {
         //     }]
         // },
         options: {
+            responsive: false,
+            // maintainAspectRatio: false,
             legend: { display: false },
             plugins: {
                 legend: {
@@ -60,6 +62,12 @@ function run() {
     names=names.map(e => new RegExp(e))
     let data = document.getElementById('input').value
         .split('\n\n').map(e => f(e, names)).filter(e => !e.includes(NaN))
+    let wl=[0,0]
+    for (i=1;i<data.length;i++) {
+        wl[(Number(data[i]>data[i-1]))]++
+        if (data[i]==data[i-1]) wl[1]--
+    }
+    document.getElementById('wl').innerHTML=`Win/Total = ${wl[0]}/${wl[1]+wl[0]} = ${(wl[0]/(wl[1]+wl[0])).toFixed(3)*100}%`
     let output = `<table CELLSPACING=0><tr>${data.map(e => `<td>${e[0]}</td><td>${e[1]}</td>`).join("</tr><tr>")}</tr></table>`
     document.getElementById("output").innerHTML = output
     navigator.clipboard.writeText(data.map(e => e.join('\t')).join('\n'));
