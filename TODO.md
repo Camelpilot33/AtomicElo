@@ -7,3 +7,4 @@
  - [x] Chesscom instructions
  - [x] AtomicElo instructions
  - [ ] Google sheets instructions
+ - [ ] Make it count win loss by +x.xx after name
