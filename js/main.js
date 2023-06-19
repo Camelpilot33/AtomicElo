@@ -100,7 +100,7 @@ function run() {
     let working = { year: Number(document.getElementById("year").value), lastDate: new Date("2370-01-01T00:00:00Z") };
     let data = document.getElementById('input').value
         .split('\n\n').map(e => f(e, names, working)).filter(e => !e.includes(NaN)); //converts data to [date, elo, eloChange]
-    let wins = data.filter(e => e[2] > 0).length; //gets number of wins form eloChange
+    let wins = data.filter(e => e[2] > 0).length; //gets number of wins from eloChange
     data = (data.map(e => [e[0], e[1]])); //removes eloChange
     //set document
     document.getElementById('wl').innerHTML = `Win/Total = ${wins}/${data.length} = ${(wins / data.length * 100).toFixed(2)}%`;
