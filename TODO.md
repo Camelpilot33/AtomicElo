@@ -1,10 +1,10 @@
 # TODO
  - [x] basic year
  - [x] get start of year and detect rest, assuming player has played atleast once per year
- - [ ] style
- - [x] Inn app graphing - could use some work
+ - [x] Inn app graphing
  - [x] Points collapsible
  - [x] Chesscom instructions
  - [x] AtomicElo instructions
- - [ ] Google sheets instructions
- - [ ] Make it count win loss by +x.xx after name
+ - [ ] style
+ - [x] Google sheets instructions
+ - [ ] Link time adapter up with Chart.js to add working x axis
