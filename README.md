@@ -27,3 +27,18 @@ Example:<br><img src="https://i.imgur.com/PxbIMdc.png" alt="sample" width="200px
 	 - The points are listed <code>(&lt;YYYY MMM DD h:mm XM&gt;,&lt;Elo&gt;)</code>
 <li>Click <code>Graph Data</code> and make a copy of the spreadsheet, replace the example data with the one in your clipboard</li>
 </ol>
+<h2>Chrome Extension</h2>
+<h3>Installation</h3>
+<ol>
+	<li>Go to <a href="https://camelpilot33.github.io/AtomicElo/">AtomicElo website</a> and click <code>Download Extension</code>, then extract <code>AtomicEloExtension.zip</code></li>
+	<li>Go to <code>chrome://extensions</code>, and enable developer mode</li>
+	<li>Click <code>Load Unpacked</code> and choose the extracted file</li>
+</ol>
+<h3>Use</h3>
+<ol>
+	<li>Copy steps 1-3 of <a href="https://github.com/Camelpilot33/AtomicElo#use">Use</a> to set up search</li>
+	<li>Scroll down the archive until you have loaded it all</li>
+	<li>Click the extension icon on your toolbar and follow the prompts</li>
+	<li>The extension will put a table in your clipboard</li>
+	<li>Go back to the <a href="https://camelpilot33.github.io/AtomicElo/">AtomicElo website</a> to click <code>Graph Data</code> and make a copy of the spreadsheet, replace the example data with the one in your clipboard</li>
+</ol>
