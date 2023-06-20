@@ -1,9 +1,8 @@
 chrome.action.onClicked.addListener(async (tab) => {
     //adapted from commit db2f381
-    function getData() {
-        //load function
-        function f(matchData, names, working, _=1) {
-            let lines = matchData
+    function Injection() {
+        function f(matchData, names, working, _ = 1) {
+            let lines = matchData;
             let date = NaN;
             let elo = NaN;
             let eloChange = NaN;
@@ -27,10 +26,11 @@ chrome.action.onClicked.addListener(async (tab) => {
             }
             return [date, elo, eloChange];
         }
+        console.info("%cAtomicElo Injection", "font-size:20px;color: #00ff00")
         let names = window.prompt("csv names").split(',')//document.getElementsByClassName("ui_v5-input-component ui_v5-input-dark ui_v5-input-group-space-left ui_v5-input-group-space-right")[0].value
         names = new RegExp("(" + names.join("|") + ")", "gi"); 
         let working = { year: Number(window.prompt("year:")), lastDate: new Date("2370-01-01T00:00:00Z") };
-        let data = document.getElementsByClassName("archive-results-found-games")[0].textContent.replace(/  /g, '').split(/3 \| 2/g);
+        let data = document.getElementsByClassName("archive-results-found-games")[0].textContent.replace(/  /g, '').split(/Atomic/g);
         data.shift();
         data = data.map(e => e.split('\n'))
         data=data.map((e,_) => f(e, names, working,_))//.filter(e => !e.includes(NaN));
@@ -47,7 +47,7 @@ chrome.action.onClicked.addListener(async (tab) => {
 
     chrome.scripting.executeScript({
         target: { tabId: tab.id },
-        function: getData,
-        args: ['Hello']
+        function: Injection,
+        args: []
     });
 });

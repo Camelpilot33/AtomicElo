@@ -8,3 +8,4 @@
  - [ ] style
  - [x] Google sheets instructions
  - [ ] Link time adapter up with Chart.js to add working x axis
+ - [ ] Make extension work with multiple variants
