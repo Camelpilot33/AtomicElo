@@ -3,7 +3,7 @@ This is a basic tool for the Atomic Chess variant on [Chess.com](https://Chess.c
 ## Contents
  - [Website](https://github.com/Camelpilot33/AtomicElo#website)
  - [Chrome Extension](https://github.com/Camelpilot33/AtomicElo#chrome-extension)
- - [Website](https://github.com/Camelpilot33/AtomicElo#website#pgn-converter)
+ - [PGN Converter](https://github.com/Camelpilot33/AtomicElo#pgn-converter)
 ## Website
 <ol>
 <li>Go to the <a href="https://www.chess.com/variants/atomic/archive">Chess.com atomic archive</a> and sign in.</li>
