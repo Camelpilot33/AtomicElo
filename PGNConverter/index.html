@@ -1,0 +1,33 @@
+<!Doctype html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="../img/favicon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="Samuel Sastry">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="../css/navbarstyle.css" rel="stylesheet" type="text/css" />
+    <title>PGN Converter</title>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div class="topnav">
+        <a class="activenav" href="../">AtomicElo</a>
+        <a href="#">PGN Converter</a>
+    </div>
+
+    <div style="padding-left:16px">
+        <h4>Convert Chess.com PGN (not PGN4) to Lichess PGN</h4>
+        <textarea rows=5 cols=50 id="input0" placeholder="Paste Chess.com PGN here"></textarea><br>
+        <input type="file" id="input1" accept=".pgn" onchange="run()">
+        <button onclick="run()" id="button">Convert</button><br>
+        <textarea rows=10 cols=50 id="output" placeholder="Lichess PGN output"></textarea>
+        <h3>Contributions - <a href="https://github.com/Camelpilot33/AtomicElo" target="_blank"
+                rel="noopener noreferrer">Github<img height="30px" style="vertical-align: middle"
+                    src="../img/GitHub-Mark.png"></img></a></h3>
+    </div>
+</body>
+
+</html>
