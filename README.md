@@ -1,6 +1,10 @@
 # AtomicElo
-This is a basic tool used to graph Elo for the Atomic Chess variant on [Chess.com](https://Chess.com). View the site [here](https://camelpilot33.github.io/AtomicElo/).
-## Use
+This is a basic tool for the Atomic Chess variant on [Chess.com](https://Chess.com). View the site [here](https://camelpilot33.github.io/AtomicElo/).
+## Contents
+ - [Website](https://github.com/Camelpilot33/AtomicElo#website)
+ - [Chrome Extension](https://github.com/Camelpilot33/AtomicElo#chrome-extension)
+ - [Website](https://github.com/Camelpilot33/AtomicElo#website#pgn-converter)
+## Website
 <ol>
 <li>Go to the <a href="https://www.chess.com/variants/atomic/archive">Chess.com atomic archive</a> and sign in.</li>
 <li>Click the <code>More options</code> button: <img src="https://i.imgur.com/etKRiRJ.png" alt="sample" width="20px"></li>
@@ -30,7 +34,7 @@ Example:<br><img src="https://i.imgur.com/PxbIMdc.png" alt="sample" width="200px
 <h2>Chrome Extension</h2>
 <h3>Installation</h3>
 <ol>
-	<li>Go to <a href="https://camelpilot33.github.io/AtomicElo/">AtomicElo website</a> and click <code>Download Extension</code>, then extract <code>AtomicEloExtension.zip</code></li>
+	<li>Go to the <a href="https://camelpilot33.github.io/AtomicElo/">AtomicElo website</a> and click <code>Download Extension</code>, then extract <code>AtomicEloExtension.zip</code></li>
 	<li>Go to <code>chrome://extensions</code>, and enable developer mode</li>
 	<li>Click <code>Load Unpacked</code> and choose the extracted file</li>
 </ol>
@@ -41,4 +45,11 @@ Example:<br><img src="https://i.imgur.com/PxbIMdc.png" alt="sample" width="200px
 	<li>Click the extension icon on your toolbar and follow the prompts</li>
 	<li>The extension will put a table in your clipboard</li>
 	<li>Go back to the <a href="https://camelpilot33.github.io/AtomicElo/">AtomicElo website</a> to click <code>Graph Data</code> and make a copy of the spreadsheet, replace the example data with the one in your clipboard</li>
+</ol>
+<h2>PGN Converter</h2>
+<ol>
+	<li>Download the Chess.com PGN (not PGN4)</li>
+	<li>Go to the <a href="https://camelpilot33.github.io/AtomicElo/PGNConverter/">PGN Converter</a></li>
+	<li>Paste and copy the data on the website</li>
+	<li>Import the game on <a href="https://lichess.org/paste">Lichess</a></li>
 </ol>
