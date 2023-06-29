@@ -2,9 +2,10 @@
  * Links graph object g to <canvas id="graph"> and sets up graph
  * @param {Array} datapoints datapoints
  * @param {string} mainName first name listed
+ * @param {string} type whether to graph vs time or number
  * @returns {void} nothing
  */
-function graph(datapoints, mainName) {
+function graph(datapoints, mainName,type) {
     //try to destroy graph
     try { g.destroy(); } catch { }
     //create new graph
@@ -15,7 +16,7 @@ function graph(datapoints, mainName) {
         data: {
             datasets: [{
                 label: mainName,
-                data: datapoints.map(e => new Object({ x: convDate(e[0]), y: e[1] })).sort(function (a, b) { return a.x - b.x; }),
+                data: type=="number"?datapoints.map((e,_) => new Object({ x: datapoints.length-_, y: e[1] })).sort(function (a, b) { return a.x - b.x; }):datapoints.map(e => new Object({ x: convDate(e[0]), y: e[1] })).sort(function (a, b) { return a.x - b.x; }),
                 backgroundColor: 'rgb(255, 99, 132)'
             }]
         },
@@ -107,7 +108,7 @@ function run() {
     document.getElementById("output").innerHTML = `<table CELLSPACING=0><tr>${data.map(e => `<td>${e[0]}</td><td>${e[1]}</td>`).join("</tr><tr>")}</tr></table>`;
 
     navigator.clipboard.writeText(data.map(e => e.join('\t')).join('\n')); //copy google sheets pastable
-    graph(data, player); //graphs the data
+    graph(data, player, document.querySelector('input[name="gt"]:checked').value); //graphs the data
 }
 
 /**

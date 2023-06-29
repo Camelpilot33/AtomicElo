@@ -18,6 +18,8 @@
   <div class="topnav">
     <a class="activenav" href="#">AtomicElo</a>
     <a href="PGNConverter">PGN Converter</a>
+    <a href="https://github.com/Camelpilot33/AtomicElo" target="_blank" rel="noopener noreferrer">Github&nbsp;<img height="17px" style="vertical-align: middle" src="img/github-mark-white.png"></img></a>
+    <a href="AtomicEloExtension.zip">Download Extension</a>
   </div>
   <div style="padding-left:16px">
     <h1>AtomicElo</h1>
@@ -52,10 +54,14 @@
     </div>
     <script src="js/collapsible.js"></script>
     <p id="wl">Win/Loss:</p>
-    <h3>Graph</h3>
+    <h3>Graph</h3><br>
+    Graph vs<br>
+    <label for="gt">Time</label>
+    <input name="gt" type="radio" id="graph_time" value="time" checked>&nbsp;&nbsp;
+    <label for="gg">Number</label>
+    <input name="gt" type="radio" id="graph_number" value="number"><br>
+    <script src="js/radioscript.js"></script>
     <canvas id="graph" width=800 height=300></canvas>
-    <h3><a href="AtomicEloExtension.zip" download="AtomicEloExtension"><button>Download Extension</button></a></h3>
-    <h3>Instructions &amp; Contributions - <a href="https://github.com/Camelpilot33/AtomicElo" target="_blank" rel="noopener noreferrer">Github<img height="30px" style="vertical-align: middle" src="img/GitHub-Mark.png"></img></a></h3>
   </div>
 </body>
 
